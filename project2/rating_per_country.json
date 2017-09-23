@@ -1,0 +1,23 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "data": {"url": "data/merged_imdb_bechdel.json"},
+  "mark": "bar",
+  "config": {
+    "bar": {
+      "color": "green"
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "country", 
+      "type": "nominal", 
+      "axis": {"title":"Years movies released"} 
+    },
+    "y": {
+      "aggregate": "average", 
+      "field": "bechdel_rating", 
+      "type": "quantitative", 
+      "axis":{"title":"Average of bechdel rating"}
+    }
+  }
+}
