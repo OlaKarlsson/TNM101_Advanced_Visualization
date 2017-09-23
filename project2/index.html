@@ -20,26 +20,36 @@
     <h1>Visualization of IMDB and Bechdel test data</h1>
 
 
-<button id="myBtn">Swap</button>
+<button id="avgRatingPerYear">Average Bechdel Rating per YEAR</button>
+<button id="avgRatingPerCountry">Average Bechdel Rating per COUNTRY</button>
 
   <div id="vis"></div>
 
   <script>
     const opt = {"actions":false}
-    var spec = "rating_per_country.json";
+    showAvgRatingPerYear();
 
 
-    vega.embed('#vis', spec, opt).then(function(result) {
-    // access view as result.view
-    }).catch(console.error);
+    var avgRatingPerYearBtn = document.getElementById("avgRatingPerYear");
+    avgRatingPerYearBtn.addEventListener("click", showAvgRatingPerYear, false);
+
+    function showAvgRatingPerYear(){
+      var avgRatingPerYearSpec = "average_per_year.json";
+
+      vega.embed('#vis', avgRatingPerYearSpec, opt).then(function(result) {
+      // access view as result.view
+      }).catch(console.error);
 
 
-    var el = document.getElementById("myBtn");
-    el.addEventListener("click", swapViz, false);
+    }
 
-    function swapViz(){
-      var spec2 = "test.json";
-      vega.embed('#vis', spec2, opt).then(function(result) {
+
+    var avgRatingPerCountryBtn = document.getElementById("avgRatingPerCountry");
+    avgRatingPerCountryBtn.addEventListener("click", showAvgRatingPerCountry, false);
+
+    function showAvgRatingPerCountry(){
+      var avgRatingPerCountrySpec = "rating_per_country.json";
+      vega.embed('#vis', avgRatingPerCountrySpec, opt).then(function(result) {
       // access view as result.view
       }).catch(console.error);
 

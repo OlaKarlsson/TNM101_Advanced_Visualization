@@ -1,5 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "title": "Average Bechdel rating for movies per country",
+  "width": 600,
   "data": {"url": "data/merged_imdb_bechdel.json"},
   "mark": "bar",
   "config": {
@@ -11,7 +13,7 @@
     "x": {
       "field": "country", 
       "type": "nominal", 
-      "axis": {"title":"Years movies released"} 
+      "axis": {"title":"Country movie made"} 
     },
     "y": {
       "aggregate": "average", 

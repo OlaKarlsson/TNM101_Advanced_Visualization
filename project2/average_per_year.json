@@ -1,5 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "title": "Average Bechdel rating for movies per year",
+  "width": 600,
   "data": {"url": "data/merged_imdb_bechdel.json"},
   "mark": "bar",
   "config": {
