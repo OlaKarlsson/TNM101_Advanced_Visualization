@@ -1,0 +1,24 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "data": {
+      "url": "data/merged_imdb_bechdel.json"},
+    "width": 700,
+    "height": 500,
+  "config":{
+      "bar":{"color":"#666666"}
+  },
+  "mark": "bar",
+    "encoding":{
+        "x": {"field": "title_year", "type":"nominal",
+             "axis": {"title": "Year"}
+             },
+        "y": {"field": "*", "type":"quantitative",
+             "axis": {"title": "Number of movies"},
+              "aggregate": "count"},
+    "color":{
+        "field": "bechdel_rating", "type": "nominal"
+    }
+    }
+
+
+}

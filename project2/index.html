@@ -4,6 +4,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.2/vega.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/2.0.0-beta.21/vega-lite.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/3.0.0-beta.19/vega-embed.js"></script>
+  <script src="scripts/page_interactions.js" defer="defer"></script>
   <style>
     body {
       font-family: sans-serif;
@@ -22,40 +23,7 @@
 
 <button id="avgRatingPerYear">Average Bechdel Rating per YEAR</button>
 <button id="avgRatingPerCountry">Average Bechdel Rating per COUNTRY</button>
+<button id="bechdelRatingPerYearStackedBar">Stacked Barchart Bechdel Rating per YEAR</button>
 
   <div id="vis"></div>
-
-  <script>
-    const opt = {"actions":false}
-    showAvgRatingPerYear();
-
-
-    var avgRatingPerYearBtn = document.getElementById("avgRatingPerYear");
-    avgRatingPerYearBtn.addEventListener("click", showAvgRatingPerYear, false);
-
-    function showAvgRatingPerYear(){
-      var avgRatingPerYearSpec = "average_per_year.json";
-
-      vega.embed('#vis', avgRatingPerYearSpec, opt).then(function(result) {
-      // access view as result.view
-      }).catch(console.error);
-
-
-    }
-
-
-    var avgRatingPerCountryBtn = document.getElementById("avgRatingPerCountry");
-    avgRatingPerCountryBtn.addEventListener("click", showAvgRatingPerCountry, false);
-
-    function showAvgRatingPerCountry(){
-      var avgRatingPerCountrySpec = "rating_per_country.json";
-      vega.embed('#vis', avgRatingPerCountrySpec, opt).then(function(result) {
-      // access view as result.view
-      }).catch(console.error);
-
-
-    }
-
-
-  </script>
 </body>
