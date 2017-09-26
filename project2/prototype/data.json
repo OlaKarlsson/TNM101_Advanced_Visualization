@@ -1,0 +1,8 @@
+[
+    {"title": "Movie 1", "genre": ["Action","Romance"]},
+    {"title": "Movie 2", "genre": ["Action","Romance"]},
+    {"title": "Movie 3", "genre": ["Adventure","History"]},
+    {"title": "Movie 4", "genre": ["Action","Adventure"]},
+    {"title": "Movie 5", "genre": ["Romance"]},
+    {"title": "Movie 6", "genre": ["Adventure"]}
+    ]

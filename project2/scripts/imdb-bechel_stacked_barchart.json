@@ -15,9 +15,9 @@
         "y": {"field": "*", "type":"quantitative",
              "axis": {"title": "Number of movies"},
               "aggregate": "count"},
-    "color":{
-        "field": "bechdel_rating", "type": "nominal"
-    }
+        "color":{
+            "field": "bechdel_rating", "type": "nominal"
+        }
     }
 
 
