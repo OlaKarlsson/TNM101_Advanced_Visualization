@@ -1,0 +1,29 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "title": "Average Bechdel rating for movies per country",
+  "width": 800,
+  "height": 500,
+  "data": {"url": "data/merged_all_imdb_bechdel.json"},
+  "selection": {
+    "selection_filter": {
+      "type": "single",
+      "fields": ["content_rating"],
+      "bind": {"input": "select", "options": [" PG-13", " R", " PG"]}
+    }
+  },
+  "mark": "point",
+  "encoding": {
+    "x": {
+      "field": "title_year", 
+      "type": "nominal", 
+      "axis": {"title":"Year"}
+    },
+    "y": {
+      "field": "gross", 
+      "type": "quantitative"}
+    },
+    "transform": [
+      {"filter":{"selection":"selection_filter"}}
+    ]
+    }
+  

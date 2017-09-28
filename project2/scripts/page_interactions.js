@@ -33,3 +33,13 @@ function showBechdelRatingPerYearStackedBar(){
   // access view as result.view
   }).catch(console.error);
 }
+
+var selectionFilterBtn = document.getElementById("selectionFilter");
+selectionFilterBtn.addEventListener("click", showSelectionFilter, false);
+
+function showSelectionFilter(){
+  var selectionFilterSpec = "scripts/selection_filter.json";
+  vega.embed('#vis', selectionFilterSpec, opt).then(function(result) {
+  // access view as result.view
+  }).catch(console.error);
+}
