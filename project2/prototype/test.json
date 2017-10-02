@@ -1,23 +1,39 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
-  "title": "Average Bechdel rating for movies per country",
-  "width": 800,
-  "height": 500,
-  "data": {"url": "../data/merged_imdb_bechdel.json"},
-  "transform": [
-    {"summarize": [{"aggregate": "count", "field": "country", "as": "country_count"}]},
-    {"filter": "country_count < 10"}
-  ],
-  "mark": "line",
-  "encoding": {
-    "x": {
-      "field": "title_year", 
-      "type": "nominal", 
-      "axis": {"title":"Year"}
-    },
-    "y": { 
-      "field": "bechdel_rating", 
-      "type": "quantitative"},
-      "color": {"field": "country", "type": "nominal"}
+  "data": {"url": "merged_all_imdb_bechdel.json"},
+  "selection": {
+    "selection_filter": {
+      "type": "single",
+      "fields": ["content_rating"],
+      "bind": {"input": "select", "options": [" G", " PG", " PG-13", " R", " NC-17"]}
     }
+  },
+  "transform": [
+    {"filter": {"field": "title_year", "range": [2000, 2016]}},
+    {"calculate": "datum.bechdel_rating == 0 ? '0' : datum.bechdel_rating == 1 ? '1' : datum.bechdel_rating == 2 ? '2' : '3'", "as": "bechdel"},
+    {"filter":{"selection":"selection_filter"}}
+  ],
+  "mark": "bar",
+  "encoding": {
+    "column": {
+      "field": "title_year", "type": "ordinal"
+    },
+    "y": {
+      "aggregate": "count", "field": "movie_title", "type": "quantitative",
+      "axis": {"title": "Number of movies", "grid": false}
+    },
+    "x": {
+      "field": "bechdel_rating", "type": "nominal",
+      "scale": {"rangeStep": 12},
+      "axis": {"title": ""}
+    },
+    "color": {
+      "field": "bechdel_rating", "type": "nominal",
+      "scale": {"range": ["#022D41", "#FE424D", "#D3EDEA", "#1AA6B7"]}
+    }
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {"domainWidth": 1}
   }
+}
