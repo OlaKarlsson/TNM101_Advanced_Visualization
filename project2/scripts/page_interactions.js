@@ -43,3 +43,14 @@ function showSelectionFilter(){
   // access view as result.view
   }).catch(console.error);
 }
+
+
+var imdbBechdelYearBtn = document.getElementById("imdbBechdelYear");
+imdbBechdelYearBtn.addEventListener("click", showImdbBechdelYear, false);
+
+function showImdbBechdelYear(){
+  var imdbBechdelYearSpec = "scripts/imdb_bechdel_1990_2016.json";
+  vega.embed('#vis', selectionFilterSpec, opt).then(function(result) {
+  // access view as result.view
+  }).catch(console.error);
+}

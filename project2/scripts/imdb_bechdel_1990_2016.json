@@ -1,0 +1,32 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+    "data": {"url": "data/merged_all_imdb_bechdel.json"},
+    "transform": [
+      {"filter": {"field": "title_year", "range": [1990, 2016]}},
+      {"calculate": "datum.bechdel_rating == 0 ? '0' : datum.bechdel_rating == 1 ? '1' : datum.bechdel_rating == 2 ? '2' : '3'", "as": "bechdel"}
+    ],
+    "mark": "bar",
+    "encoding": {
+      "column": {
+        "field": "title_year", "type": "ordinal"
+      },
+      "y": {
+        "aggregate": "count", "field": "movie_title", "type": "quantitative",
+        "axis": {"title": "Number of movies", "grid": false}
+      },
+      "x": {
+        "field": "bechdel", "type": "nominal",
+        "scale": {"rangeStep": 12},
+        "axis": {"title": ""}
+      },
+      "color": {
+        "field": "bechdel", "type": "nominal",
+        "scale": {"range": ["#EA98D2", "#659CCA", "red", "green"]}
+      }
+    },
+    "config": {
+      "view": {"stroke": "transparent"},
+      "axis": {"domainWidth": 1}
+    }
+  }
+  
