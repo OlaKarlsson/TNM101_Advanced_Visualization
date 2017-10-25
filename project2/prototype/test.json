@@ -29,7 +29,10 @@
     },
     "color": {
       "field": "bechdel_rating", "type": "nominal",
-      "scale": {"range": ["#022D41", "#FE424D", "#D3EDEA", "#1AA6B7"]}
+      "scale": {"range": ["#022D41", "#FE424D", "#D3EDEA", "#1AA6B7"]},
+      "legend":{
+        "title": "Bechdel"
+      }
     }
   },
   "config": {
